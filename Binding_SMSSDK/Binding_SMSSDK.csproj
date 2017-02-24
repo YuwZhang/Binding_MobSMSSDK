@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{4D0B3B4A-FBCA-4586-925D-05F4B43A2596}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Binding_SMSSDK</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>Binding_SMSSDK</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="SMSSDKUI.bundle\zh-Hans.lproj\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="libMOBFoundation.linkwith.cs">
+      <DependentUpon>libMOBFoundation.a</DependentUpon>
+    </Compile>
+    <Compile Include="libMOBFoundationEx.linkwith.cs">
+      <DependentUpon>libMOBFoundationEx.a</DependentUpon>
+    </Compile>
+    <Compile Include="libSMSSDKUI.linkwith.cs">
+      <DependentUpon>libSMSSDKUI.a</DependentUpon>
+    </Compile>
+    <Compile Include="libSMS_SDK.linkwith.cs">
+      <DependentUpon>libSMS_SDK.a</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="Structs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingNativeLibrary Include="libSMS_SDK.a" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingNativeLibrary Include="libMOBFoundation.a" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingNativeLibrary Include="libMOBFoundationEx.a" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingNativeLibrary Include="libSMSSDKUI.a" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="SMSSDKUI.bundle\en.lproj\country.plist" />
+    <BundleResource Include="SMSSDKUI.bundle\en.lproj\Localizable.strings" />
+    <BundleResource Include="SMSSDKUI.bundle\country.plist" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="SMSSDKUI.bundle\Localizable.strings" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="SMSSDKUI.bundle\.DS_Store" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="SMSSDKUI.bundle\button_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="SMSSDKUI.bundle\button1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="SMSSDKUI.bundle\button2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="SMSSDKUI.bundle\button3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="SMSSDKUI.bundle\button4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="SMSSDKUI.bundle\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="SMSSDKUI.bundle\navigationbar_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="SMSSDKUI.bundle\navigationbar_background%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="SMSSDKUI.bundle\sms_ui_default_avatar.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+</Project>
